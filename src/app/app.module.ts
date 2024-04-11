@@ -8,6 +8,7 @@ import { AllpostComponent } from './allpost/allpost.component';
 import { ThispostComponent } from './thispost/thispost.component';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button'
+import { MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatButtonModule} from '@angular/material/button'
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

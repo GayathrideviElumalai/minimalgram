@@ -1,9 +1,29 @@
-<mat-card>
-    <div style="display: flex;justify-content: center;">
-        <h1>Minimalgram</h1>
+
+<div style="width: 100%;">
+    <mat-card>
+        <div style="display: flex;justify-content: center;">
+            <h1>Minimalgram</h1>
+        </div>
+    </mat-card>
+    <div style="display: grid;grid-template-columns: auto auto auto;column-gap: 10px;row-gap: 13px;width: 100%;">
+            <div *ngFor="let item of postlist">
+                <mat-card style="width: 500px;height: 500px;display: flex;flex-direction: column;">
+                    <div>
+                        <img width="400px" height="400px" src="{{item.img}}">
+                    </div>
+                    <div>
+                        <mat-icon *ngIf="item.isLiked" style="color:red">favorite</mat-icon>
+                        <mat-icon *ngIf="!item.isLiked">favorite_border</mat-icon>
+                        <mat-icon (click)="clickhere(item.id)"> add_comment</mat-icon>
+                    </div>
+                    <div>
+                        <label>{{item.description}}</label>
+                    </div>
+                    <!-- <button mat-flat-button color="primary" (click)="clickhere()">clickhere</button> -->
+                </mat-card>
+        
+            </div>
     </div>
-</mat-card>
-<mat-card>
-    <img width="500px" src="../../assets/images/animal.jpg">
-    <button mat-flat-button color="primary" (click)="clickhere()">clickhere</button>
-</mat-card>
+</div>
+
+

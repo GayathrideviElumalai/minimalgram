@@ -1,1 +1,17 @@
-<p>thispost works!</p>
+
+<div style="display: flex;justify-content: center;">
+    <mat-card style="width: 500px;height: 500px;display: flex;flex-direction: column;justify-content: center;">
+        <div>
+            <img width="400px" height="400px" src="{{post[0].img}}">
+        </div>
+        <div>
+            <mat-icon *ngIf="post.isLiked" style="color:red">favorite</mat-icon>
+            <mat-icon *ngIf="!post.isLiked">favorite_border</mat-icon>
+            
+        </div>
+        <div>
+            <label>{{post.description}}</label>
+        </div>
+        
+    </mat-card>
+</div>
