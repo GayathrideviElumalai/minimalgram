@@ -9,6 +9,10 @@ const routes: Routes = [
     component:AllpostComponent
   },
   {
+    path:'allpost',
+    component:AllpostComponent
+  },
+  {
     path:'post/:id',
     component:ThispostComponent
   }

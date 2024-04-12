@@ -19,6 +19,10 @@ const data = [
           msg: "dont show me this post",
         },
       ],
+      imageFilter:'none',
+      showIcon:false,
+      likecount:1,
+      
     },
     {
       id: 1,
@@ -32,6 +36,9 @@ const data = [
           msg: "nice post 2",
         },
       ],
+      imageFilter:'none',
+      showIcon:false,
+      likecount:0
     },
     {
       id: 2,
@@ -45,6 +52,9 @@ const data = [
           msg: "nice post 3",
         },
       ],
+      imageFilter:'none',
+      showIcon:false,
+      likecount:0
     },
     {
       id: 3,
@@ -53,6 +63,9 @@ const data = [
       description: "this is nice post 4",
       isLiked: true,
       comments: [],
+      imageFilter:'none',
+      showIcon:false,
+      likecount:1
     },
     {
       id: 4,
@@ -70,6 +83,9 @@ const data = [
           msg: "good for you 5",
         },
       ],
+      imageFilter:'none',
+      showIcon:false,
+      likecount:0
     },
     {
       id: 5,
@@ -83,6 +99,9 @@ const data = [
           msg: "nice post 6",
         },
       ],
+      imageFilter:'none',
+      showIcon:false,
+      likecount:1
     },
     {
         id: 6,
@@ -96,6 +115,9 @@ const data = [
             msg: "nice post 6",
           },
         ],
+        imageFilter:'none',
+        showIcon:false,
+        likecount:1
       },
       {
         id: 7,
@@ -109,6 +131,9 @@ const data = [
             msg: "nice post 6",
           },
         ],
+        imageFilter:'none',
+        showIcon:false,
+        likecount:1
       }
   ];
   

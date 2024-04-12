@@ -1,28 +1,45 @@
 
 <div style="width: 100%;">
-    <mat-card>
+    <mat-card style="margin-bottom: 20px;">
         <div style="display: flex;justify-content: center;">
             <h1>Minimalgram</h1>
         </div>
     </mat-card>
-    <div style="display: grid;grid-template-columns: auto auto auto;column-gap: 10px;row-gap: 13px;width: 100%;">
-            <div *ngFor="let item of postlist">
-                <mat-card style="width: 500px;height: 500px;display: flex;flex-direction: column;">
-                    <div>
-                        <img width="400px" height="400px" src="{{item.img}}">
+    
+    <div class="container">
+        <div class="posts">
+            <div  *ngFor="let item of postlist">
+                <mat-card class="post" style="width: 350px;height: 300px;display: flex;flex-direction: column;">
+                    <div style="position: relative;transition: filter 0.3s ease;">
+                        <img width="350px" height="300px" src="{{item.img}}" [style.filter]="item.imageFilter" (click)="clickhere(item.id)" (mouseover)="blurImage(true,item.id)" (mouseout)="blurImage(false,item.id)">
+                        <div *ngIf="item.showIcon" class="icon-container" style="display: flex;">
+                            <mat-icon (click)="likeToggle(item.id)" *ngIf="item.isLiked" style="color:white">favorite</mat-icon>
+                            <mat-icon (click)="likeToggle(item.id)" *ngIf="!item.isLiked" style="color:white">favorite_border</mat-icon>
+                            <label style="font-size:20px;color: white;position: relative;top:2px">{{item.likecount}}</label>
+                            <mat-icon (click)="clickhere(item.id)" style="color:white"> chat_bubble_outline</mat-icon>
+                            <label style="font-size:20px;color: white;position: relative;top:2px">{{item.comments.length}}</label>
+                          </div>
+                    </div>
+                    <!-- <div>
+                        <mat-icon (click)="likeToggle(item.id)" *ngIf="item.isLiked" style="color:red">favorite</mat-icon>
+                        <mat-icon (click)="likeToggle(item.id)" *ngIf="!item.isLiked">favorite_border</mat-icon>
+                        <mat-icon (click)="clickhere(item.id)"> chat_bubble_outline</mat-icon>
                     </div>
                     <div>
-                        <mat-icon *ngIf="item.isLiked" style="color:red">favorite</mat-icon>
-                        <mat-icon *ngIf="!item.isLiked">favorite_border</mat-icon>
-                        <mat-icon (click)="clickhere(item.id)"> add_comment</mat-icon>
+                        <label>1 Like</label>
+                    </div>
+                    <div>
+                        <label>1 Comment</label>
                     </div>
                     <div>
                         <label>{{item.description}}</label>
-                    </div>
+                    </div> -->
                     <!-- <button mat-flat-button color="primary" (click)="clickhere()">clickhere</button> -->
                 </mat-card>
         
             </div>
+        </div>
+            
     </div>
 </div>
 

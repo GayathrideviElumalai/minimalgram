@@ -1,0 +1,24 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding: 30px;
+}
+.post {
+    margin-bottom: 10px;
+    width: 32%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    align-self: flex-start;
+}
+.icon-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Additional styling for the icon container */
+  }

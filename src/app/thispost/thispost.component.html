@@ -1,17 +1,44 @@
+<mat-card style="margin-bottom: 20px;">
+    <div style="display: flex;justify-content: center;">
+        <h1>Minimalgram</h1>
+    </div>
+</mat-card>
 
 <div style="display: flex;justify-content: center;">
-    <mat-card style="width: 500px;height: 500px;display: flex;flex-direction: column;justify-content: center;">
-        <div>
-            <img width="400px" height="400px" src="{{post[0].img}}">
+    <div style="position: relative;left: -13px;"><mat-icon (click)="back()">keyboard_backspace</mat-icon></div>
+    <mat-card style="display: flex;flex-direction: row;justify-content: center;column-gap: 45px;width: 50%;">
+        <div style="display: flex;flex-direction: column;width: 50%;">
+            <div>
+                <img width="400px" height="400px" src="{{post[0].img}}">
+            </div>
+            <div>
+                <mat-icon (click)="likeToggle(post[0].id)" *ngIf="post[0].isLiked" style="color:red">favorite</mat-icon>
+                <mat-icon (click)="likeToggle(post[0].id)" *ngIf="!post[0].isLiked">favorite_border</mat-icon>
+                <mat-icon (click)="clickhere(post[0].id)"> chat_bubble_outline</mat-icon>
+            </div>
+            <div>
+                <label>1 Like</label>
+            </div>
+            <div>
+                <label>1 Comment</label>
+            </div>
+            <div>
+                <label>{{post[0].description}}</label>
+            </div>
         </div>
-        <div>
-            <mat-icon *ngIf="post.isLiked" style="color:red">favorite</mat-icon>
-            <mat-icon *ngIf="!post.isLiked">favorite_border</mat-icon>
-            
-        </div>
-        <div>
-            <label>{{post.description}}</label>
+        <div style="width: 50%;">
+            <mat-card style="min-height: 500px;">
+                <label style="text-align: center;font-size: 20px;position: relative;left: 112px;top: -11px;">Comments</label>
+                <div style="display: flex;flex-direction: column;" *ngFor="let item of post[0].comments">
+                    <div style="border: 1px solid #e4e4e4;display: flex;flex-direction: column;margin-bottom: 20px;border-radius: 3px;">
+                        <label style="font-size: 14px;color:grey;padding-left: 8px;padding-top:8px">{{item.user}}</label>
+                        <label style="font-size: 12px;color:black;padding-left: 8px;padding-top:8px">{{item.msg}}</label>
+                    </div>
+                    
+                </div>
+            </mat-card>
         </div>
         
     </mat-card>
 </div>
+
