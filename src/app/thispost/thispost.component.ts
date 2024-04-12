@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute ,Router} from '@angular/router';
 import list from '../../list';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog} from '@angular/material/dialog'
 @Component({
   selector: 'app-thispost',
   templateUrl: './thispost.component.html',
@@ -9,9 +11,15 @@ import list from '../../list';
 export class ThispostComponent implements OnInit {
   id:any
   post:any=[]
-  constructor(private ActivatedRoute: ActivatedRoute,private Router: Router) { }
+  commentform:any
+  @ViewChild('addcomment') addcomment:any
+  constructor(private ActivatedRoute: ActivatedRoute,private Router: Router, private MatDialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.commentform = new FormGroup({
+      user :  new FormControl(),
+      comment : new FormControl()
+    })
     this.id = this.ActivatedRoute.snapshot.params['id'];
     console.log('id',this.id)
     this.post = list.map((index:any)=>{
@@ -22,15 +30,13 @@ export class ThispostComponent implements OnInit {
     console.log('post',this.post)
   }
   likeToggle(id:any) {
-    // this.temppostlist = this.postlist;
-    // this.postlist = [];
-    // for(let item of this.temppostlist) {
-    //   if(item.id == id) {
-    //     item.isLiked = !item.isLiked
-    //   }
-    // }
-    // this.postlist = this.temppostlist
-
+    this.post[0].isLiked = !this.post[0].isLiked
+    if(this.post[0].isLiked) {
+      this.post[0].likecount++
+    } else {
+      this.post[0].likecount--
+    }
+    
   }
   imageFilter: string | undefined;
 
@@ -46,6 +52,7 @@ export class ThispostComponent implements OnInit {
     // this.postlist = this.temppostlist
   }
   clickhere(id:any) {
+    this.MatDialog.open(this.addcomment)
     // this.Router.navigate(['/post/'+id])
   }
   back(){

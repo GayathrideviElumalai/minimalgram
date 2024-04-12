@@ -9,6 +9,8 @@ import { ThispostComponent } from './thispost/thispost.component';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button'
 import { MatIconModule} from '@angular/material/icon'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MatIconModule} from '@angular/material/icon'
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,ReactiveFormsModule,MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

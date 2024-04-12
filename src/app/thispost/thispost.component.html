@@ -17,10 +17,16 @@
                 <mat-icon (click)="clickhere(post[0].id)"> chat_bubble_outline</mat-icon>
             </div>
             <div>
-                <label>1 Like</label>
+                <label>{{post[0].likecount}} 
+                    <span *ngIf="post[0].likecount <= 1 " style="position: relative;left: 2px;">Like</span>
+                    <span *ngIf="post[0].likecount > 1 " style="position: relative;left: 2px;">Likes</span>
+                </label>
             </div>
             <div>
-                <label>1 Comment</label>
+                <label>{{post[0].comments.length}}
+                    <span *ngIf="post[0].comments.length <= 1 " style="position: relative;left: 2px;">Comment</span>
+                    <span *ngIf="post[0].comments.length > 1 " style="position: relative;left: 2px;">Comments</span>
+                </label>
             </div>
             <div>
                 <label>{{post[0].description}}</label>
@@ -41,4 +47,22 @@
         
     </mat-card>
 </div>
-
+<ng-template #addcomment>
+        <form formgroup="commentform" style="width: 300px;height: 343px;">
+            <label style="margin-left:102px">Add Comment</label>
+            <div style="display: flex;flex-direction: column;row-gap: 26px;margin-top: 20px;">
+                <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <label>Username :</label>
+                    <input style="width: 217px;border: 1px solid #dddddd;">
+                </div>
+                <div style="display: flex;flex-direction: column;    row-gap: 10px;">
+                    <label>Comment </label>
+                    <textarea style="height: 180px;border: 1px solid #dddddd;"></textarea>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content: space-evenly;">
+                    <button mat-flat-button style="background-color: grey;color:white;width: 65px;height: 28px;line-height: 28px;padding-left: 10px;">Cancel</button>
+                    <button mat-flat-button style="background-color: #2e2e8b;color:white;width: 65px;height: 28px;line-height: 28px;padding-left: 10px;">Save</button>
+                </div>
+            </div>
+        </form>
+</ng-template>
